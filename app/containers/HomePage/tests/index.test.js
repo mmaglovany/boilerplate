@@ -8,7 +8,7 @@ import { IntlProvider } from 'react-intl';
 
 import ReposList from 'components/ReposList';
 import { HomePage, mapDispatchToProps } from '../index';
-import { changeUsername } from '../actions';
+import { changeUsername, clearUsername } from '../actions';
 import { loadRepos } from '../../App/actions';
 
 describe('<HomePage />', () => {
@@ -75,6 +75,23 @@ describe('<HomePage />', () => {
         const username = 'mxstbr';
         result.onChangeUsername({ target: { value: username } });
         expect(dispatch).toHaveBeenCalledWith(changeUsername(username));
+      });
+    });
+
+    describe('onClearUsername', () => {
+      it('should be injected', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+
+        expect(result.onChangeUsername).toBeDefined();
+      });
+
+      it('should dispatch clearUsername when called', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+
+        result.onClearUsername();
+        expect(dispatch).toHaveBeenCalledWith(clearUsername());
       });
     });
 

@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
 
 import homeReducer from '../reducer';
-import { changeUsername } from '../actions';
+import { changeUsername, clearUsername } from '../actions';
 
 describe('homeReducer', () => {
   let state;
@@ -21,5 +21,11 @@ describe('homeReducer', () => {
     const expectedResult = state.set('username', fixture);
 
     expect(homeReducer(state, changeUsername(fixture))).toEqual(expectedResult);
+  });
+
+  it('should handle the clearUsername action correctly', () => {
+    const expectedResult = state;
+
+    expect(homeReducer(state, clearUsername())).toEqual(expectedResult);
   });
 });

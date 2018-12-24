@@ -1,6 +1,6 @@
-import { CHANGE_USERNAME } from '../constants';
+import { CHANGE_USERNAME, CLEAR_USERNAME } from '../constants';
 
-import { changeUsername } from '../actions';
+import { changeUsername, clearUsername } from '../actions';
 
 describe('Home Actions', () => {
   describe('changeUsername', () => {
@@ -13,5 +13,13 @@ describe('Home Actions', () => {
 
       expect(changeUsername(fixture)).toEqual(expectedResult);
     });
+  });
+
+  describe('clearUsername', () => {
+    const expectedResult = {
+      type: CLEAR_USERNAME,
+    };
+
+    expect(clearUsername()).toEqual(expectedResult);
   });
 });

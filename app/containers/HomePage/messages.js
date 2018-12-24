@@ -29,4 +29,8 @@ export default defineMessages({
     id: `${scope}.tryme.atPrefix`,
     defaultMessage: '@',
   },
+  clear: {
+    id: `${scope}.clear`,
+    defaultMessage: 'Clear',
+  },
 });
